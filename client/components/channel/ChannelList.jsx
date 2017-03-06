@@ -4,20 +4,16 @@ const channelList = [{name: 'general'}, {name: 'theBrain SoftwareHouse'}, {name:
 
 export class ChannelList extends React.Component {
 
-    returnChannelList = () => {
-        return (
-            channelList.map(() => {
-                return <li>channel name</li>
-            })
-        )
-    };
+    returnChannelList = () => (
+                <ul>
+                {channelList.map((channel) => <li key={channel.name}>{channel.name}</li>)}
+                </ul>
+    );
 
     render() {
         return (
             <div>
-                <ul>
                     {this.returnChannelList()}
-                </ul>
             </div>
         )
     }
