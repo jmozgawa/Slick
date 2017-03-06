@@ -10,16 +10,13 @@ export class ChannelList extends React.Component {
                 return <li>channel name</li>
             })
         )
-    }
+    };
 
     render() {
-
-        const renderChannelItems = this.returnChannelList()
-
         return (
             <div>
                 <ul>
-                    {renderChannelItems}
+                    {this.returnChannelList()}
                 </ul>
             </div>
         )
