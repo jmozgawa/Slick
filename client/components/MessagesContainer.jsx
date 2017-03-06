@@ -2,25 +2,21 @@ import React from 'react';
 import {MessageForm} from './message/MessageForm';
 
 
-const messages= [{}, {}, {}]
+const messages = [{id: 1}, {id: 2}, {id: 3}];
 
 export class MessagesContainer extends React.Component {
 
-  renderMessages = ()=> {
-    return (
-      messages.map((message)=> <MessageForm/>)
-    );
-  }
-
-  render() {
-    const renderedMessages = this.renderMessages();
-
-    return(
-      <div>
+    renderMessages = () => (
         <ul>
-          {renderedMessages}
+            {messages.map((message) => <li key={messages.id}><MessageForm/></li>)}
         </ul>
-      </div>
-    )
-  }
+    );
+
+    render() {
+        return (
+            <div>
+                {this.renderMessages}
+            </div>
+        )
+    }
 }
