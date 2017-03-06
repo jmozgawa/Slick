@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class MessageHeader extends React.component {
+export class MessageHeader extends React.Component {
   render() {
     return (
       <div>

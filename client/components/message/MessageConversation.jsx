@@ -1,14 +1,14 @@
 import React from 'react';
-import {ConversationItme} from './ConversationItem';
+import {ConversationItem} from './ConversationItem';
 
 
 const messages = [];
 
-export class MessageConversation extends React.component {
+export class MessageConversation extends React.Component {
 
   renderConversationItems = (asdasd) => {
     return (
-      [{}, {}, {}].map(() => <ConversationItme />)
+      [{}, {}, {}].map(() => <ConversationItem />)
     );
   }
 

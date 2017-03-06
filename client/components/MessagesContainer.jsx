@@ -1,10 +1,10 @@
 import React from 'react';
-import {MessageForm} from 'message/MessageForm';
+import {MessageForm} from './message/MessageForm';
 
 
 const messages= [{}, {}, {}]
 
-export class MessagesContainer extends React.component {
+export class MessagesContainer extends React.Component {
 
   renderMessages = ()=> {
     return (

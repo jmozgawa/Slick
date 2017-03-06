@@ -2,13 +2,14 @@ import React from 'react';
 import {MessageHeader} from './MessageHeader';
 import {MessageConversation} from './MessageConversation';
 
-export class MessageForm extends React.component {
+export class MessageForm extends React.Component {
   render() {
-    <li>
-      <div>
-        <MessageHeader/>
-        <MessageConversation/>
-      </div>
-    </li>
+    return (
+      <li>
+        <div>
+          <MessageHeader/>
+          <MessageConversation/>
+        </div>
+      </li>);
   }
 }
