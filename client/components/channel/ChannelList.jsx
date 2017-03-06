@@ -10,7 +10,7 @@ export class ChannelList extends React.Component {
                 return <li>channel name</li>
             })
         )
-    };
+    }
 
     render() {
 

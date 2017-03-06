@@ -6,7 +6,7 @@ const messages = [];
 
 export class MessageConversation extends React.component {
 
-  renderConversationItmes = (asdasd) => {
+  renderConversationItems = (asdasd) => {
     return (
       [{}, {}, {}].map(() => <ConversationItme />)
     );
@@ -14,7 +14,7 @@ export class MessageConversation extends React.component {
 
   render() {
 
-    const conversation = this.renderConversationItmes();
+    const conversation = this.renderConversationItems();
 
     return (
       <ul>
