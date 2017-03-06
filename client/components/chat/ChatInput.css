@@ -1,0 +1,12 @@
+.ChatInput {
+    display: flex;
+    padding: 1rem;
+}
+
+.ChatInput input {
+    flex: 1 0 auto;
+}
+
+.ChatInput button {
+    flex: 0 0 auto;
+}

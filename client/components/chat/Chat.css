@@ -1,0 +1,19 @@
+.Chat {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.Chat .ChatHeader {
+    flex: 0 0 auto;
+    padding: 1rem;
+}
+
+.Chat .MessagesContainer {
+    flex: 1 1 auto;
+}
+
+.Chat .ChatInput {
+    flex: 0 0 auto;
+}

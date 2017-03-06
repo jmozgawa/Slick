@@ -7,7 +7,7 @@ export class Chat extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Chat">
         <ChatHeader/>
         <MessagesContainer/>
         <ChatInput/>

@@ -1,0 +1,11 @@
+.App {
+    display: flex;
+}
+
+.App .ChannelList {
+    flex: 0 0 auto;
+}
+
+.App .Chat {
+    flex: 1 0 auto;
+}

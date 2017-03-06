@@ -4,10 +4,10 @@ export class ChatInput extends React.Component {
 
   render() {
     return (
-      <div>
+      <form className="ChatInput">
         <input type="text"/>
         <button/>
-      </div>
+      </form>
     )
   }
 

@@ -1,11 +1,9 @@
 import React from 'react';
 
 const ChatHeader = (props) => {
-  return (
-    <li>
-      <div>{props.channel}</div>
-    </li>
-  );
+    return (
+        <div className="ChatHeader">{props.channel}</div>
+    );
 };
 
 export default ChatHeader;

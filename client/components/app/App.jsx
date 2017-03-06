@@ -6,13 +6,9 @@ export class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <div id="channel-list">
+            <div className="App">
                     <ChannelList/>
-                </div>
-                <div id="chat">
                     <Chat/>
-                </div>
             </div>
         );
     }
