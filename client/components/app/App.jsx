@@ -1,7 +1,8 @@
 import React from 'react';
-import ChannelList from  '../channel/ChannelList'
+import {ChannelList} from  '../channel/ChannelList';
+import {Chat} from '../Chat';
 
-export default class App extends React.Component {
+export class App extends React.Component {
 
     render() {
         return (
@@ -10,13 +11,11 @@ export default class App extends React.Component {
                     <ChannelList/>
                 </div>
                 <div id="chat">
-
-                </div>
-                <div id="message-input">
-
+                    <Chat/>
                 </div>
             </div>
         )
     }
-};
+}
+;
 

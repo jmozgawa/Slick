@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 const channelList = [{name: 'general'}, {name: 'theBrain SoftwareHouse'}, {name: 'meteor in flipflops'}];
 
-export default class ChannelList extends React.Component {
+export class ChannelList extends React.Component {
 
     returnChannelList = () => {
         return (
