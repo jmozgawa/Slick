@@ -1,5 +1,5 @@
 import React from 'react';
-import {ConversationItem} from './ConversationItem';
+import {ConversationItem} from './ConversationItem.jsx';
 
 
 const messages = [];

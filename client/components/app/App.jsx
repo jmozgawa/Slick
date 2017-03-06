@@ -1,6 +1,6 @@
 import React from 'react';
-import {ChannelList} from  '../channel/ChannelList';
-import {Chat} from '../Chat';
+import {ChannelList} from  '../channel/ChannelList.jsx';
+import {Chat} from '../chat/Chat.jsx';
 
 export class App extends React.Component {
 
@@ -14,8 +14,7 @@ export class App extends React.Component {
                     <Chat/>
                 </div>
             </div>
-        )
+        );
     }
 }
-;
 
