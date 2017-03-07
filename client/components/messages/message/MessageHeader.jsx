@@ -4,7 +4,7 @@ export class MessageHeader extends React.Component {
   render() {
     return (
       <div>
-        <p>UserName timestamp</p>
+        <p>{this.props.handle}</p>
       </div>
     );
   }
