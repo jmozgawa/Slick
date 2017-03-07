@@ -1,57 +1,22 @@
-const channels = [];
-let ID = 0;
-
-const getNextID = () => {
-    ID += 1;
-    return ID;
-};
-
 const resolvers = {
     Query: {
-        channels() {
-            return channels;
+        channels(obj, args, context) {
+            return context.Channels.getChannels();
         },
         channel(obj, args, context) {
-            console.log("JMOZGAWA: channels", channels);
-            return channels.find(channel => channel.name === args.name);
+            return context.Channels.getChannel(args.name);
         }
     },
     Mutation: {
         post(obj, args, context) {
-            const targetChannel = channels.find(channelItem => channelItem.name === args.channel);
-            if (targetChannel) {
-                const newMessage = {
-                    id: getNextID(),
-                    handle: "USER NAME",
-                    content: args.message,
-                    timestamp: Math.round(+new Date() / 1000)
-                };
-                targetChannel.messages.push(newMessage);
-
-                return newMessage;
-            } else {
-                throw new Error('channel not found');
-            }
+            return context.Channels.post("args.handle", args.channel, args.message)
         },
-
         createChannel(obj, args, context) {
-            const newChannel = {
-                id: getNextID(),
-                name: args.name,
-                messages: []
-            };
-
-            console.log("JMOZGAWA: newChannel", newChannel);
-            channels.push(newChannel);
-            return newChannel;
+            return context.Channels.createChannel(args.name);
         },
-
         removeChannel(obj, args, context) {
-            const targetChannelIndex = channels.indexOf(channelItem => channelItem.name === args.channel);
-            return channels.splice(targetChannelIndex, 1).length > 0;
-
-        }
-
+            return context.Channels.removeChannel(args.name);
+        },
     },
 };
 

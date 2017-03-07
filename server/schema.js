@@ -8,7 +8,7 @@ export default `
   }
 
   type Channel {
-    id: ID!
+    _id: ID!
     name: String!
     messages: [Message]!
   }
