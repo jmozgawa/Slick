@@ -1,6 +1,6 @@
 import React from 'react';
 import ChannelList from  '../channel/ChannelList.jsx';
-import Chat from '../chat/Chat.jsx';
+
 
 export class App extends React.Component {
 
@@ -8,7 +8,8 @@ export class App extends React.Component {
         return (
             <div className="App">
                     <ChannelList/>
-                    <Chat channelName={"General"}/>
+                   { this.props.children }
+                    {/*<Chat channelName={"General"}/>*/}
             </div>
         );
     }

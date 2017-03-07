@@ -1,16 +1,16 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import {render} from 'react-dom';
-import {App} from './components/app/App.jsx';
 import ApolloClient from 'apollo-client';
 import {ApolloProvider} from 'react-apollo';
+import routes from './components/routes.jsx';
 
 const apolloClient = new ApolloClient();
 
 Meteor.startup(() => {
   render(
     <ApolloProvider client={apolloClient}>
-      <div><App/></div>
+      {routes}
     </ApolloProvider>,
     document.getElementById('root'),
   );

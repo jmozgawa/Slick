@@ -18,7 +18,7 @@ class Chat extends React.Component {
       return  (<p>Error...</p>)
     }
 
-    console.log("JMOZGAWA: this.props",this.props);
+    console.log("JMOZGAWA: this",this);
     
     return (
       <div className="Chat">
@@ -32,7 +32,7 @@ class Chat extends React.Component {
 }
 
 const query = gql`
-  query Channel($name: String!) {
+    query Channel($name: String!) {
     channel(name: $name) {
       name messages {
         id content timestamp handle
@@ -44,7 +44,7 @@ const query = gql`
 export default graphql(query, {
   options: ownProps => {
     console.log("JMOZGAWA: ownProps",ownProps);
-    return ({ pollInterval: 1000, variables: { name: ownProps.channelName } });
+    return ({ pollInterval: 1000, variables: { name: ownProps.params.channelName } });
   } ,
 })(Chat);
 
