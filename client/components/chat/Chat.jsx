@@ -8,27 +8,24 @@ import gql from 'graphql-tag';
 
 class Chat extends React.Component {
 
-  render() {
+    render() {
 
-    if (this.props.data.loading) {
-      return (<p>Loading...</p>)
+        if (this.props.data.loading) {
+            return (<p>Loading...</p>)
+        }
+
+        if (this.props.data.error) {
+            return (<p>Error...</p>)
+        }
+
+        return (
+            <div className="Chat">
+                <ChatHeader channelName={this.props.data.channel.name}/>
+                <MessagesContainer messages={this.props.data.channel.messages}/>
+                <ChatInput/>
+            </div>
+        )
     }
-
-    if (this.props.data.error) {
-      return  (<p>Error...</p>)
-    }
-
-    console.log("JMOZGAWA: this.props",this.props);
-    
-    return (
-      <div className="Chat">
-        <ChatHeader channelName={this.props.data.channel.name}/>
-        <MessagesContainer messages={this.props.data.channel.messages} />
-        <ChatInput/>
-      </div>
-    )
-  }
-
 }
 
 const query = gql`
@@ -42,9 +39,9 @@ const query = gql`
 `;
 
 export default graphql(query, {
-  options: ownProps => {
-    console.log("JMOZGAWA: ownProps",ownProps);
-    return ({ pollInterval: 1000, variables: { name: ownProps.channelName } });
-  } ,
+    options: ownProps => {
+        console.log("JMOZGAWA: ownProps", ownProps);
+        return ({pollInterval: 1000, variables: {name: ownProps.channelName}});
+    },
 })(Chat);
 

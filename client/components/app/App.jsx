@@ -8,7 +8,7 @@ export class App extends React.Component {
         return (
             <div className="App">
                     <ChannelList/>
-                    <Chat channelName={"General"}/>
+                    <Chat channelName={"GENERAL"}/>
             </div>
         );
     }
