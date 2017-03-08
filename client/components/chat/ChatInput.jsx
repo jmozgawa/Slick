@@ -5,24 +5,22 @@ import update from 'immutability-helper';
 
 class ChatInput extends React.Component {
 
-  onSubmit = (e)=> {
-    e.preventDefault();
-    this.props.submit({
-      channel: this.props.channelName,
-      message: this.refs.input.value
-    });
-    this.refs.input.value = "";d
-  }
+    onSubmit = (e) => {
+        e.preventDefault();
+        this.props.submit({
+            channel: this.props.channelName,
+            message: this.refs.input.value
+        });
+        this.refs.input.value = "";
+    };
 
-  render() {
-    return (
-      <form className="ChatInput" onSubmit={this.onSubmit}>
-        <input type="text" ref="input"/>
-        <button/>
-      </form>
-    )
-  }
-
+    render() {
+        return (
+            <form className="ChatInput" onSubmit={this.onSubmit}>
+                <input type="text" ref="input"/>
+            </form>
+        )
+    }
 }
 
 const submitPost = gql`
@@ -34,26 +32,26 @@ const submitPost = gql`
 `;
 
 export default graphql(submitPost, {
-  props: ({ownProps, mutate}) => ({
-    submit: ({channel, message}) => mutate({
-      variables: {
-        channel,
-        message,
-      },
-      updateQueries: {
-        Channel: (prev, {mutationResult})=> {
-          const updateResults = update(prev,{
-            channel:{
-              messages: {
-                $push: [mutationResult.data.post]
-              }
+    props: ({ownProps, mutate}) => ({
+        submit: ({channel, message}) => mutate({
+            variables: {
+                channel,
+                message,
+            },
+            updateQueries: {
+                Channel: (prev, {mutationResult}) => {
+                    const updateResults = update(prev, {
+                        channel: {
+                            messages: {
+                                $push: [mutationResult.data.post]
+                            }
+                        }
+
+
+                    });
+                    return updateResults;
+                }
             }
-
-
-          });
-          return updateResults;
-        }
-      }
+        })
     })
-  })
 })(ChatInput);
