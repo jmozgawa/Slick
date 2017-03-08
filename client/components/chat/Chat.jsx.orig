@@ -1,0 +1,69 @@
+import React from 'react';
+import {MessagesContainer} from '../messages/MessagesContainer.jsx';
+import {ChatInput} from './ChatInput.jsx';
+import ChatHeader from './ChatHeader.jsx';
+import {graphql} from 'react-apollo';
+import gql from 'graphql-tag';
+
+
+class Chat extends React.Component {
+
+    render() {
+
+        if (this.props.data.loading) {
+            return (<p>Loading...</p>)
+        }
+
+        if (this.props.data.error) {
+            return (<p>Error...</p>)
+        }
+
+        return (
+            <div className="Chat">
+                <ChatHeader channelName={this.props.data.channel.name}/>
+                <MessagesContainer messages={this.props.data.channel.messages}/>
+                <ChatInput/>
+            </div>
+        )
+    }
+<<<<<<< HEAD
+
+    console.log("JMOZGAWA: this",this);
+    
+    return (
+      <div className="Chat">
+        <ChatHeader channelName={this.props.data.channel.name}/>
+        <MessagesContainer messages={this.props.data.channel.messages} />
+        <ChatInput/>
+      </div>
+    )
+  }
+
+=======
+>>>>>>> d4962699be147be6de61c11fc0ea18165375318b
+}
+
+const query = gql`
+    query Channel($name: String!) {
+    channel(name: $name) {
+      name messages {
+        id content timestamp handle
+      }
+    }
+  }
+`;
+
+export default graphql(query, {
+<<<<<<< HEAD
+  options: ownProps => {
+    console.log("JMOZGAWA: ownProps",ownProps);
+    return ({ pollInterval: 1000, variables: { name: ownProps.params.channelName } });
+  } ,
+=======
+    options: ownProps => {
+        console.log("JMOZGAWA: ownProps", ownProps);
+        return ({pollInterval: 1000, variables: {name: ownProps.channelName}});
+    },
+>>>>>>> d4962699be147be6de61c11fc0ea18165375318b
+})(Chat);
+

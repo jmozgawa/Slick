@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
+import { Link } from 'react-router';
 
 class ChannelList extends React.Component {
 
@@ -14,7 +15,7 @@ class ChannelList extends React.Component {
             return (<p>Error...</p>)
         }
         return <ul className="ChannelList">
-            {this.props.data.channels.map((channel) => <li key={channel.name}># {channel.name}</li>)}
+            {this.props.data.channels.map((channel) => <li><Link to={`/channel/${channel.name}`} key={channel.name}># {channel.name}</Link></li>)}
         </ul>
     }
 }
