@@ -2,7 +2,7 @@ import React from 'react';
 
 const ChatHeader = (props) => {
     return (
-        <div className="ChatHeader">{props.channelName}</div>
+        <div className="ChatHeader"><b>{props.channelName}</b></div>
     );
 };
 

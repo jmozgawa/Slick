@@ -14,14 +14,15 @@ class ChatInput extends React.Component {
     this.refs.input.value = "";
   }
 
-  render() {
-    return (
-      <form className="ChatInput" onSubmit={this.onSubmit}>
-        <input type="text" ref="input"/>
-        <button/>
-      </form>
-    )
-  }
+    };
+
+    render() {
+        return (
+            <form className="ChatInput" onSubmit={this.onSubmit}>
+                <input type="text" ref="input"/>
+            </form>
+        )
+    }
 
 }
 
@@ -34,29 +35,29 @@ const submitPost = gql`
 `;
 
 export default graphql(submitPost, {
-  props: ({ownProps, mutate}) => ({
-    submit: ({channel, message}) => mutate({
-      variables: {
-        channel,
-        message,
-      },
-      updateQueries: {
-        Channel: (prev, {mutationResult})=> {
-          console.log("JMOZGAWA: mutationResult", mutationResult);
-          const updateResults = update(prev,{
-            channel:{
-              messages: {
-                $push: [mutationResult.data.post]
-              }
+    props: ({ownProps, mutate}) => ({
+        submit: ({channel, message}) => mutate({
+            variables: {
+                channel,
+                message,
+            },
+            updateQueries: {
+                Channel: (prev, {mutationResult}) => {
+                    console.log("JMOZGAWA: mutationResult", mutationResult);
+                    const updateResults = update(prev, {
+                        channel: {
+                            messages: {
+                                $push: [mutationResult.data.post]
+                            }
+                        }
+
+
+                    });
+                    console.log("JMOZGAWA: prev", prev);
+                    console.log("JMOZGAWA: updateResults", updateResults);
+                    return updateResults;
+                }
             }
-
-
-          });
-          console.log("JMOZGAWA: prev",prev);
-          console.log("JMOZGAWA: updateResults",updateResults);
-          return updateResults;
-        }
-      }
+        })
     })
-  })
 })(ChatInput);
