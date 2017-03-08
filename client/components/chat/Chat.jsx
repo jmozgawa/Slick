@@ -1,6 +1,6 @@
 import React from 'react';
 import {MessagesContainer} from '../messages/MessagesContainer.jsx';
-import {ChatInput} from './ChatInput.jsx';
+import ChatInput from './ChatInput.jsx';
 import ChatHeader from './ChatHeader.jsx';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
@@ -24,7 +24,7 @@ class Chat extends React.Component {
       <div className="Chat">
         <ChatHeader channelName={this.props.data.channel.name}/>
         <MessagesContainer messages={this.props.data.channel.messages} />
-        <ChatInput/>
+        <ChatInput channelName={this.props.data.channel.name}/>
       </div>
     )
   }
@@ -44,7 +44,7 @@ const query = gql`
 export default graphql(query, {
   options: ownProps => {
     console.log("JMOZGAWA: ownProps",ownProps);
-    return ({ pollInterval: 1000, variables: { name: ownProps.params.channelName } });
+    return ({ variables: { name: ownProps.params.channelName } });
   } ,
 })(Chat);
 

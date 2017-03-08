@@ -31,6 +31,6 @@ const query = gql`
 
 
 export default graphql(query, {
-    options: {pollInterval: 10000},
+    // options: {pollInterval: 10000},
 })(ChannelList);
 
