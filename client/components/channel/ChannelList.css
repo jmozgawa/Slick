@@ -7,3 +7,8 @@
     list-style-type: none;
     font-family: Slack;
 }
+
+.ChannelList li a {
+    text-decoration: none;
+    color: #a89ca8;
+}
