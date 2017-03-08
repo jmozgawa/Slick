@@ -11,6 +11,7 @@ class ChatInput extends React.Component {
       channel: this.props.channelName,
       message: this.refs.input.value
     });
+    this.refs.input.value = "";
   }
 
   render() {

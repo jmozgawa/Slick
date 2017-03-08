@@ -9,7 +9,7 @@ const resolvers = {
     },
     Mutation: {
         post(obj, args, context) {
-            return context.Channels.post("args.handle", args.channel, args.message)
+            return context.Channels.post(context.user.services.facebook.name, args.channel, args.message)
         },
         createChannel(obj, args, context) {
             return context.Channels.createChannel(args.name);
