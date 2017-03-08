@@ -11,7 +11,7 @@ class ChatInput extends React.Component {
       channel: this.props.channelName,
       message: this.refs.input.value
     });
-    this.refs.input.value = "";
+    this.refs.input.value = "";d
   }
 
   render() {
@@ -42,7 +42,6 @@ export default graphql(submitPost, {
       },
       updateQueries: {
         Channel: (prev, {mutationResult})=> {
-          console.log("JMOZGAWA: mutationResult", mutationResult);
           const updateResults = update(prev,{
             channel:{
               messages: {
@@ -52,8 +51,6 @@ export default graphql(submitPost, {
 
 
           });
-          console.log("JMOZGAWA: prev",prev);
-          console.log("JMOZGAWA: updateResults",updateResults);
           return updateResults;
         }
       }

@@ -18,8 +18,6 @@ class Chat extends React.Component {
       return  (<p>Error...</p>)
     }
 
-    console.log("JMOZGAWA: this",this);
-    
     return (
       <div className="Chat">
         <ChatHeader channelName={this.props.data.channel.name}/>
@@ -43,8 +41,7 @@ const query = gql`
 
 export default graphql(query, {
   options: ownProps => {
-    console.log("JMOZGAWA: ownProps",ownProps);
-    return ({ variables: { name: ownProps.params.channelName } });
+    return ({ pollInterval: 10000, variables: { name: ownProps.params.channelName } });
   } ,
 })(Chat);
 

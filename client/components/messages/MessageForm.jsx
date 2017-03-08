@@ -5,8 +5,6 @@ import {MessageConversation} from './message/MessageConversation.jsx';
 export class MessageForm extends React.Component {
   render() {
     
-    console.log("JMOZGAWA: this.props",this.props);
-    
     return (
       <li>
         <div>
