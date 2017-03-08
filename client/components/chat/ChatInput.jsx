@@ -1,6 +1,7 @@
 import React from 'react';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
+import update from 'immutability-helper';
 
 class ChatInput extends React.Component {
 
@@ -26,7 +27,7 @@ class ChatInput extends React.Component {
 const submitPost = gql`
     mutation post($channel: String!, $message: String!) {
         post(channel: $channel, message: $message) {
-            id handle content
+            id handle content timestamp
         }
     }
 `;
@@ -37,6 +38,23 @@ export default graphql(submitPost, {
       variables: {
         channel,
         message,
+      },
+      updateQueries: {
+        Channel: (prev, {mutationResult})=> {
+          console.log("JMOZGAWA: mutationResult", mutationResult);
+          const updateResults = update(prev,{
+            channel:{
+              messages: {
+                $push: [mutationResult.data.post]
+              }
+            }
+
+
+          });
+          console.log("JMOZGAWA: prev",prev);
+          console.log("JMOZGAWA: updateResults",updateResults);
+          return updateResults;
+        }
       }
     })
   })

@@ -10,7 +10,7 @@ class Chat extends React.Component {
 
   render() {
 
-    if (this.props.data.loading) {
+    if (this.props.data.loading || !this.props.data.channel) {
       return (<p>Loading...</p>)
     }
 
