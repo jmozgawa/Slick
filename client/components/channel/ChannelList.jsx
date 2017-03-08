@@ -19,6 +19,10 @@ class ChannelList extends React.Component {
         this.setState({visibleForm:true});
     }
 
+    onChannelCreated = ()=> {
+      this.setState({visibleForm:false})
+    }
+
     render() {
 
         if (this.props.data.loading) {
@@ -32,7 +36,7 @@ class ChannelList extends React.Component {
             <ul className="ChannelList">
 
                 <div>
-                    {!this.state.visibleForm ? <p className="CreateChannel" onClick={this.onCreateChannelClick} >+ ADD CHANNEL</p> : <CreateChannel/>}
+                    {!this.state.visibleForm ? <p className="CreateChannel" onClick={this.onCreateChannelClick} >+ ADD CHANNEL</p> : <CreateChannel onChannelCreated={this.onChannelCreated}/>}
                 </div>
 
                 {this.props.data.channels.map((channel) => <li>
