@@ -15,7 +15,10 @@ class ChannelList extends React.Component {
             return (<p>Error...</p>)
         }
         return <ul className="ChannelList">
-            {this.props.data.channels.map((channel) => <li><Link to={`/channel/${channel.name}`} key={channel.name}># {channel.name}</Link></li>)}
+            <p> + ADD CHANNEL </p>
+            {this.props.data.channels.map((channel) => <li>
+                <Link to={`/channel/${channel.name}`} key={channel.name}># {channel.name}</Link>
+            </li>)}
         </ul>
     }
 }

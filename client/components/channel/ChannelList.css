@@ -12,3 +12,11 @@
     text-decoration: none;
     color: #a89ca8;
 }
+
+.ChannelList li a:active {
+    color: coral;
+}
+
+.ChannelList li a:hover, a:active {
+    color: coral;
+}
