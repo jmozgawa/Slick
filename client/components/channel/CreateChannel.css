@@ -2,3 +2,7 @@
     text-decoration: none;
     color: aquamarine;
 }
+
+.ChannelList p:hover {
+    color: greenyellow;
+}
