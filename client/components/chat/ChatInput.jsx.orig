@@ -5,13 +5,32 @@ import update from 'immutability-helper';
 
 class ChatInput extends React.Component {
 
+<<<<<<< Updated upstream
+  onSubmit = (e)=> {
+    e.preventDefault();
+    this.props.submit({
+      channel: this.props.channelName,
+      message: this.refs.input.value
+    });
+    this.refs.input.value = "";
+  }
+
+  render() {
+    return (
+      <form className="ChatInput" onSubmit={this.onSubmit}>
+        <input type="text" ref="input"/>
+        <button/>
+      </form>
+    )
+  }
+=======
     onSubmit = (e) => {
         e.preventDefault();
         this.props.submit({
             channel: this.props.channelName,
             message: this.refs.input.value
         });
-        this.refs.input.value = "";
+
     };
 
     render() {
@@ -21,6 +40,8 @@ class ChatInput extends React.Component {
             </form>
         )
     }
+>>>>>>> Stashed changes
+
 }
 
 const submitPost = gql`
